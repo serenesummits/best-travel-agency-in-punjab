@@ -1,0 +1,198 @@
+/* Serene Summits — Tamil Nadu
+   Design language: temple gopuram maroon + gold, Bay of Bengal teal, warm ivory ground.
+   Display type: Frank Ruhl Libre (serif with weight and history, not another Playfair).
+   Body type: Work Sans. */
+
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root{
+  --ink:        #241a14;
+  --maroon:     #7a1f1d;
+  --maroon-dark:#4f1210;
+  --gold:       #b9862e;
+  --gold-light: #e4c789;
+  --teal:       #1f6f6b;
+  --teal-light: #e7f1ef;
+  --ivory:      #faf4e6;
+  --ivory-deep: #f2e9d4;
+  --line:       #e3d6b8;
+  --max: 1120px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Work Sans', -apple-system, sans-serif;
+  font-size:17px;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Frank Ruhl Libre', Georgia, serif;
+  font-weight:700;
+  line-height:1.15;
+  margin:0 0 .5em;
+  color:var(--ink);
+}
+p{ margin:0 0 1em; max-width:62ch; }
+a{ color:var(--maroon); }
+img{ max-width:100%; display:block; }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+/* skip link for keyboard users */
+.skip{ position:absolute; left:-999px; top:auto; }
+.skip:focus{ left:24px; top:12px; background:var(--ink); color:#fff; padding:10px 16px; z-index:200; }
+
+/* ---------- header ---------- */
+.site-header{
+  border-bottom:1px solid var(--line);
+  background:var(--ivory);
+  position:sticky; top:0; z-index:50;
+}
+.site-header .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:16px; padding-bottom:16px;
+  gap:24px;
+}
+.brand{
+  font-family:'Frank Ruhl Libre', serif;
+  font-weight:700; font-size:1.35rem;
+  color:var(--ink); text-decoration:none;
+  display:flex; align-items:baseline; gap:8px;
+}
+.brand .mark{ color:var(--maroon); font-size:1.05em; }
+.brand .place{
+  font-family:'Work Sans', sans-serif;
+  font-size:.62rem; font-weight:600; letter-spacing:.06em;
+  color:var(--teal); border:1px solid var(--teal); border-radius:3px;
+  padding:2px 6px; transform:translateY(-2px);
+}
+nav.primary{ display:flex; gap:28px; align-items:center; }
+nav.primary a{
+  color:var(--ink); text-decoration:none; font-size:.96rem; font-weight:500;
+  border-bottom:2px solid transparent; padding-bottom:2px;
+}
+nav.primary a:hover{ border-color:var(--gold); }
+.btn{
+  display:inline-block; text-decoration:none; font-weight:600; font-size:.95rem;
+  padding:10px 20px; border-radius:4px; border:1px solid transparent;
+  cursor:pointer;
+}
+.btn-call{ background:var(--maroon); color:#fff; }
+.btn-call:hover{ background:var(--maroon-dark); }
+.btn-ghost{ background:transparent; border-color:var(--ink); color:var(--ink); }
+.btn-ghost:hover{ background:var(--ink); color:#fff; }
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  background:linear-gradient(155deg, var(--maroon) 0%, var(--maroon-dark) 62%);
+  color:var(--ivory);
+  overflow:hidden;
+}
+.hero .wrap{ padding:76px 24px 64px; position:relative; z-index:2; }
+.hero .eyebrow{
+  color:var(--gold-light); font-weight:600; font-size:.95rem;
+  margin-bottom:14px;
+}
+.hero h1{
+  color:#fff; font-size:clamp(2.1rem, 4.2vw, 3.4rem); max-width:16ch;
+}
+.hero p.lede{ color:#f1e4cf; font-size:1.14rem; max-width:58ch; }
+.hero .cta-row{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
+.hero .btn-call{ background:var(--gold); color:var(--ink); }
+.hero .btn-call:hover{ background:var(--gold-light); }
+.hero .btn-outline{ background:transparent; border:1px solid rgba(255,255,255,.55); color:#fff; }
+.hero .btn-outline:hover{ border-color:#fff; }
+
+/* kolam-inspired dot lattice, decorative, low-contrast */
+.hero .kolam{
+  position:absolute; right:-40px; top:-40px; width:420px; height:420px;
+  opacity:.16; z-index:1; pointer-events:none;
+}
+
+/* ---------- sections ---------- */
+.section{ padding:64px 0; }
+.section.alt{ background:var(--ivory-deep); }
+.section .kicker{
+  color:var(--teal); font-weight:600; font-size:.9rem; margin-bottom:8px;
+}
+.section h2{ font-size:clamp(1.6rem,2.6vw,2.1rem); max-width:22ch; }
+.section .intro{ font-size:1.05rem; color:#4a3c30; }
+
+.grid{ display:grid; gap:22px; margin-top:32px; }
+.grid.cols-4{ grid-template-columns:repeat(4,1fr); }
+.grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+.grid.cols-2{ grid-template-columns:repeat(2,1fr); }
+@media (max-width:900px){
+  .grid.cols-4{ grid-template-columns:repeat(2,1fr); }
+  .grid.cols-3{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:640px){
+  .grid.cols-4, .grid.cols-3, .grid.cols-2{ grid-template-columns:1fr; }
+}
+
+.card{
+  background:#fff; border:1px solid var(--line); border-top:3px solid var(--gold);
+  padding:24px 22px;
+}
+.card h3{ font-size:1.08rem; margin-bottom:8px; }
+.card p{ font-size:.96rem; color:#4a3c30; margin-bottom:0; }
+
+.why-list{ list-style:none; margin:32px 0 0; padding:0; display:grid; gap:18px; grid-template-columns:repeat(2,1fr); }
+@media (max-width:640px){ .why-list{ grid-template-columns:1fr; } }
+.why-list li{
+  padding-left:20px; border-left:3px solid var(--teal); font-size:.98rem;
+}
+.why-list strong{ display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.02rem; margin-bottom:2px; }
+
+/* district grid on homepage */
+.district-links{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:28px;
+}
+.district-links a{
+  background:#fff; padding:14px 16px; text-decoration:none; color:var(--ink);
+  font-size:.94rem; font-weight:500;
+}
+.district-links a:hover{ background:var(--teal-light); color:var(--teal); }
+@media (max-width:900px){ .district-links{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .district-links{ grid-template-columns:1fr; } }
+
+/* related districts strip on inner pages */
+.related{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.related a{
+  border:1px solid var(--line); padding:8px 14px; text-decoration:none;
+  color:var(--ink); font-size:.9rem; background:#fff;
+}
+.related a:hover{ border-color:var(--gold); color:var(--maroon); }
+
+/* attractions list */
+.attractions{ margin-top:18px; padding-left:0; list-style:none; }
+.attractions li{
+  padding:12px 0; border-bottom:1px solid var(--line);
+  display:flex; gap:14px; font-size:.98rem;
+}
+.attractions li .dot{ color:var(--gold); font-weight:700; }
+
+/* CTA band */
+.cta-band{
+  background:var(--teal); color:#fff; padding:48px 0; text-align:center;
+}
+.cta-band h2{ color:#fff; margin:0 auto 10px; }
+.cta-band p{ color:#dff1ee; margin:0 auto 24px; }
+.cta-band .btn-call{ background:var(--gold); color:var(--ink); }
+.cta-band .btn-call:hover{ background:var(--gold-light); }
+
+/* ---------- footer ---------- */
+footer{ background:var(--ink); color:#d9cdbb; padding:48px 0 28px; }
+footer .wrap{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; }
+@media (max-width:700px){ footer .wrap{ grid-template-columns:1fr; } }
+footer h4{ color:#fff; font-family:'Work Sans',sans-serif; font-size:.85rem; letter-spacing:.04em; margin:0 0 12px; }
+footer a{ color:#d9cdbb; text-decoration:none; font-size:.92rem; }
+footer a:hover{ color:var(--gold-light); }
+footer .brand-line{ font-family:'Frank Ruhl Libre',serif; color:#fff; font-size:1.15rem; margin-bottom:8px; }
+footer .fine{ margin-top:32px; padding-top:20px; border-top:1px solid #3a2e24; font-size:.82rem; color:#9c8f7c; }
+footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
